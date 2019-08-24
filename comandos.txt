@@ -1,0 +1,57 @@
+npx react-native init instaclone
+
+yarn start
+
+# Abra o emulador pelo android studio
+
+# Delete App.js
+# Cria src/index.js
+
+# Dentro do index.js principal
+# import App from './src';
+
+yarn react-native run-android
+
+# User o arquivo server.json para simular o backend
+
+yarn add json-server -D
+
+yarn json-server server.json -d 1000 -w
+
+# Routes
+
+yarn add react-navigation react-native-gesture-handler react-native-reanimated
+
+# Para android entra no MainActivity
+
+package com.swmansion.gesturehandler.react.example;
+
+import com.facebook.react.ReactActivity;
++ import com.facebook.react.ReactActivityDelegate;
++ import com.facebook.react.ReactRootView;
++ import com.swmansion.gesturehandler.react.RNGestureHandlerEnabledRootView;
+
+public class MainActivity extends ReactActivity {
+
+  @Override
+  protected String getMainComponentName() {
+    return "Example";
+  }
+
++  @Override
++  protected ReactActivityDelegate createReactActivityDelegate() {
++    return new ReactActivityDelegate(this, getMainComponentName()) {
++      @Override
++      protected ReactRootView createRootView() {
++       return new RNGestureHandlerEnabledRootView(MainActivity.this);
++      }
++    };
++  }
+}
+
+## Run the android again
+yarn react-native run-android
+
+yarn add styled-components
+
+adb reverse tcp:3000 tcp:3000
